@@ -19,3 +19,22 @@ class TextWidget extends StatelessWidget {
     );
   }
 }
+
+class TextWidget1 extends StatelessWidget {
+  final String data;
+  final double fontSize;
+  const TextWidget1(
+      {super.key, required this.data, required this.fontSize, });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      data,
+      style: TextStyle(
+          fontSize: fontSize,
+          color: const Color(0xFF062525),
+          fontFamily: 'Fredoka-VariableFont_wdth,wght',
+          fontWeight: FontWeight.w600),
+    );
+  }
+}
