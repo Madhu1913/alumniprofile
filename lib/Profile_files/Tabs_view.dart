@@ -1,5 +1,5 @@
-import 'package:alumniprofile/Current_working.dart';
-import 'package:alumniprofile/Selected_companies.dart';
+import 'package:alumniprofile/Profile_files/Current_working.dart';
+import 'package:alumniprofile/Profile_files/Selected_companies.dart';
 import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {

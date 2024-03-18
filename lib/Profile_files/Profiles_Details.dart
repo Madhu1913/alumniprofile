@@ -1,11 +1,15 @@
-import 'package:alumniprofile/Tabs_view.dart';
+import 'package:alumniprofile/Profile_files/CompaniesTabs.dart';
+import 'package:alumniprofile/Profile_files/Tabs_view.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui'as ui;
 
+import 'EditPage.dart';
 import 'Widgets.dart';
 
 class ProfileDetails extends StatefulWidget {
-  const ProfileDetails({super.key});
+  final int x;
+
+  const ProfileDetails({super.key, required this.x});
 
   @override
   State<ProfileDetails> createState() => _ProfileDetailsState();
@@ -70,43 +74,13 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                     ),
                   ],
                 ),
-                Positioned(
+                widget.x==1? Positioned(
                   top: h*0.115,
-                  child: Container(
-                    child: Row(
-                      children: [
-                        SizedBox(
-                          width: w * 0.02,
-                        ),
-                        Column(
-                          // mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: h * 0.10,
-                            ),
-                            Row(
-                              children: [
-                                SizedBox(
-                                  width: w * 0.055,
-                                ),
-                                TextWidget(
-                                  data: name,
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: h * 0.010,
-                            ),
-
-                            Details(),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                )
+                  child: CompaniesTabs(name: name,)
+                ):Positioned(
+                    top: h*0.225,
+                    left: w*0.109,
+                    child: EditPage())
               ],
             ),
           ),

@@ -39,6 +39,7 @@ dependencies:
 #  dynamic_fonts: ^2.2.1
   glowy_borders:
   get: ^4.6.6
+  http: ^1.2.0
 
 dev_dependencies:
   flutter_test:
