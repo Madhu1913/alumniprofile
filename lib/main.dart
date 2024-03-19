@@ -4,7 +4,7 @@ import 'package:alumniprofile/SingUp.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
-import 'Profile_files/ProfilePage.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

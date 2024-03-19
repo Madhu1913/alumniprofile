@@ -6,8 +6,9 @@ import 'package:get/get.dart';
 import 'dart:ui' as ui;
 
 class MainPage extends StatefulWidget {
+  final int? admin;
   final String? RollNumber;
-  const MainPage({super.key, this.RollNumber});
+  const MainPage({super.key, this.RollNumber, this.admin});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -196,7 +197,7 @@ class _MainPageState extends State<MainPage> {
                   top: h * 0.78,
                   child: Column(
                     children: [
-                      Padding(
+                      widget.admin == 1 ? Padding(
                         padding: const EdgeInsets.only(left: 10),
                         child: GestureDetector(
                           onTap: () {
@@ -243,7 +244,7 @@ class _MainPageState extends State<MainPage> {
                             ),
                           ),
                         ),
-                      ),
+                      ) : SizedBox(),
                       Padding(
                         padding: const EdgeInsets.only(left: 10, top: 5),
                         child: AnimatedGradientBorder(
@@ -261,9 +262,10 @@ class _MainPageState extends State<MainPage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            const ProfileDetails(
+                                             ProfileDetails(
                                               x: 1,
                                               index: 0,
+                                              admin: widget.admin,
                                             )));
                               },
                               child: SizedBox(

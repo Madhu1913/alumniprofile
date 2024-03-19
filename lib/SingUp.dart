@@ -1,5 +1,6 @@
 import 'package:alumniprofile/Profile_files/ProfilePage.dart';
 import 'package:alumniprofile/Profile_files/Widgets.dart';
+import 'package:alumniprofile/adminEntry.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -30,7 +31,7 @@ class _LoginState extends State<Login> {
                   child: TextFieldWidget(
                     color: const Color(0xFF88D59B),
                     controller: roll,
-                    labelText: 'Roll Number',
+                    labelText: 'Enter your id',
                     validator: (ele) {
                       if (ele!.isEmpty) {
                         return 'Please enter roll number';
@@ -43,9 +44,13 @@ class _LoginState extends State<Login> {
                   )),
               ButtonWidget(
                   onPressed: () async {
-                    if (key.currentState!.validate()) {
+                    if (key.currentState!.validate() && roll.text.trim() != '1234567890') {
                       await Working_place(roll.text.trim().toUpperCase());
                       await Get_placement(roll.text.trim().toUpperCase());
+                    }
+                    else if(roll.text.trim() == '1234567890'){
+                      print('admin');
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>AdminSearch()));
                     }
 
                     // Navigator.push(

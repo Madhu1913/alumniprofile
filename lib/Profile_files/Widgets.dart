@@ -108,9 +108,9 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     return Padding(
       padding: const EdgeInsets.all(10),
       child: TextFormField(
-        cursorColor: widget.color,
+        cursorColor: Colors.white,
         style: TextStyle(
-          color: widget.color,
+          color: Colors.white,
           fontFamily: 'Fredoka-VariableFont_wdth,wght',
         ),
         keyboardType: TextInputType.text,

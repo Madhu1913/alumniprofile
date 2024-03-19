@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'dart:ui';
 import 'package:alumniprofile/Profile_files/ProfilePage.dart';
+import 'package:alumniprofile/adminEntry.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -27,7 +28,7 @@ Get_placement(String UID) async {
       placement_responce = jsonDecode(res.body);
       //print(placement_responce);
 
-      Get.to(() => MainPage(RollNumber: UID));
+      // Get.to(() => MainPage(RollNumber: UID));
     } else if (res.statusCode >= 400) {
       print("Network Error");
     } else {
@@ -69,6 +70,26 @@ UpdateCompany(String UID, String companyName, String companyLocation) async {
   });
 }
 
+Working_place2(String UID) async {
+  await http
+      .get(Uri.parse(
+      "https://apps.technicalhub.io/old/techpanel2/api/asp_placements_data/get.php?id=$UID"))
+      .then((res) {
+    if (res.statusCode == 200) {
+      Workingplace_responce = jsonDecode(res.body);
+      print(Workingplace_responce);
+    } else if (res.statusCode >= 400) {
+      print("Network Error");
+    } else {
+      print("Network Error");
+    }
+  }).onError((error, stackTrace) {
+    if (error is SocketException) {
+      Get.snackbar('Warning!!', "please turn on mobile data",
+          backgroundColor: Colors.red);
+    }
+  });
+}
 Working_place(String UID) async {
   await http
       .get(Uri.parse(
@@ -77,8 +98,30 @@ Working_place(String UID) async {
     if (res.statusCode == 200) {
       Workingplace_responce = jsonDecode(res.body);
       print(Workingplace_responce);
+      Get.to(() => MainPage(RollNumber: UID,admin: 1,)) ;
 
-      Get.to(() => MainPage(RollNumber: UID));
+    } else if (res.statusCode >= 400) {
+      print("Network Error");
+    } else {
+      print("Network Error");
+    }
+  }).onError((error, stackTrace) {
+    if (error is SocketException) {
+      Get.snackbar('Warning!!', "please turn on mobile data",
+          backgroundColor: Colors.red);
+    }
+  });
+}
+Working_place1(String UID,) async {
+  await http
+      .get(Uri.parse(
+      "https://apps.technicalhub.io/old/techpanel2/api/asp_placements_data/get.php?id=$UID"))
+      .then((res) {
+    if (res.statusCode == 200) {
+      Workingplace_responce = jsonDecode(res.body);
+      print(Workingplace_responce);
+      Get.to(() => MainPage(RollNumber: UID,admin: 0,)) ;
+
     } else if (res.statusCode >= 400) {
       print("Network Error");
     } else {

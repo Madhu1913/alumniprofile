@@ -9,8 +9,8 @@ import 'Widgets.dart';
 class ProfileDetails extends StatefulWidget {
   final index;
   final int x;
-
-  const ProfileDetails({super.key, required this.x, required this.index});
+  final int? admin;
+  const ProfileDetails({super.key, required this.x, required this.index, this.admin});
 
   @override
   State<ProfileDetails> createState() => _ProfileDetailsState();
@@ -98,6 +98,7 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                       child: CompaniesTabs(
                         name: name,
                         index: widget.index,
+                        admin: widget.admin,
                       ))
                   : Positioned(
                       top: h * 0.285, left: w * 0.109, child: const EditPage())

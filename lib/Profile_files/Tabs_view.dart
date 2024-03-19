@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 
 class Details extends StatefulWidget {
   final index;
-  const Details({required this.index, super.key});
+  final int? admin;
+  const Details({required this.index, super.key, this.admin});
 
   @override
   State<Details> createState() => _DetailsState();
@@ -57,7 +58,7 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                   width: w - 50,
                   decoration: BoxDecoration(
                       // color: Color(),
-                      borderRadius: BorderRadius.circular(15),
+                      borderRadius: BorderRadius.circular(25),
                       border: Border.all(color: const Color(0xFF61D883))),
                   child: TabBar(
                     isScrollable: false,
@@ -73,9 +74,7 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                     controller: tb,
                     indicator: BoxDecoration(
                         color: const Color(0xFF61D883),
-                        // gradient: RadialGradient(colors: []),
-                        borderRadius: BorderRadius.circular(14)),
-
+                        borderRadius: BorderRadius.circular(26)),
                     tabs: const [
                       Tab(
                         child: Text(
@@ -120,7 +119,9 @@ class _DetailsState extends State<Details> with SingleTickerProviderStateMixin {
                   children: [
                     const SelectedCompanies(),
                     companyName != null
-                        ? const Current_company()
+                        ?  Current_company(
+                      admin: widget.admin,
+                    )
                         : const FillWorkingPlace()
                   ],
                 ),

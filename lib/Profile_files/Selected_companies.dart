@@ -29,104 +29,120 @@ class _SelectedCompaniesState extends State<SelectedCompanies> {
               scroll.disallowIndicator();
               return false;
             },
-            child: CarouselSlider.builder(
-                // carouselController: _Controller,
-                itemCount: placement_responce[0]['placed_companies'],
-                itemBuilder: (context, index, realIndex) {
-                  return Container(
-                    decoration: BoxDecoration(
-                        boxShadow: const [
-                          BoxShadow(
-                              offset: Offset(2, 2),
-                              color: Color(0xFF003634),
-                              blurRadius: 2,
-                              spreadRadius: 2)
-                        ],
-                        borderRadius: BorderRadius.circular(24),
-                        border: const Border(
-                            top: BorderSide(color: Color(0xFF75C8A5), width: 2),
-                            left:
-                                BorderSide(color: Color(0xFF75C8A5), width: 2)),
-                        gradient: const LinearGradient(
-                            colors: [Color(0xFF003634), Color(0xFF75C8A5)],
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight)),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0, top: 10),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              // SizedBox(height: 10,),
-                              TextWidget2(
-                                data: placement_responce[0]['placed_data']
-                                        [index]['package']
-                                    .toString()
-                                    .substring(
-                                        0,
-                                        placement_responce[0]['placed_data']
-                                                    [index]['package']
-                                                .toString()
-                                                .length -
-                                            3),
-                                fontSize: 60,
-                                fontWeight: FontWeight.w700,
-                              ),
-                              const TextWidget2(data: 'LPA', fontSize: 20),
-                              const SizedBox(
-                                height: 1,
-                              ),
-                              TextWidget(
-                                data: placement_responce[0]['placed_data']
-                                    [index]['company_name'],
-                                fontSize: 22,
-                                fontWeight: FontWeight.w700,
-                              ),
-                              // SizedBox(height: 70,),
-                            ],
-                          ),
-                        ),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 15, bottom: 15),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Container(
-                                  padding: const EdgeInsets.all(10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(18),
-                                  ),
-                                  child: Center(
-                                      child: TextWidget1(
-                                    data:
-                                        '${placement_responce[0]['placed_data'][index]['role']}',
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w700,
-                                  )))
-                            ],
-                          ),
-                        ),
-                        // SizedBox(height: 10,)
-                      ],
-                    ),
-                  );
-                },
-                options: CarouselOptions(
-                  height: h * 0.32,
-                  autoPlay: false,
+            child: Column(
+              children: [
+                SizedBox(height: 20,),
 
-                  initialPage: 1,
-                  // viewportFraction:0.85,
-                  enlargeCenterPage: true,
-                  autoPlayAnimationDuration: const Duration(seconds: 1),
-                  // enlargeStrategy: CenterPageEnlargeStrategy.zoom,
-                )),
+                Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    TextWidget(data: 'No of Selected Companies : ', fontSize: 18,fontWeight: FontWeight.w600,),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: TextWidget2(data: "${placement_responce[0]['placed_companies']}", fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+                 SizedBox(height: 40,),
+                CarouselSlider.builder(
+                    // carouselController: _Controller,
+                    itemCount: placement_responce[0]['placed_companies'],
+                    itemBuilder: (context, index, realIndex) {
+                      return Container(
+                        decoration: BoxDecoration(
+                            boxShadow: const [
+                              BoxShadow(
+                                  offset: Offset(2, 2),
+                                  color: Color(0xFF003634),
+                                  blurRadius: 2,
+                                  spreadRadius: 2)
+                            ],
+                            borderRadius: BorderRadius.circular(24),
+                            border: const Border(
+                                top: BorderSide(color: Color(0xFF75C8A5), width: 2),
+                                left:
+                                    BorderSide(color: Color(0xFF75C8A5), width: 2)),
+                            gradient: const LinearGradient(
+                                colors: [Color(0xFF003B37), Color(0xFF00DD7E)],
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomRight)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 20.0, top: 10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  // SizedBox(height: 10,),
+                                  TextWidget2(
+                                    data: placement_responce[0]['placed_data']
+                                            [index]['package']
+                                        .toString()
+                                        .substring(
+                                            0,
+                                            placement_responce[0]['placed_data']
+                                                        [index]['package']
+                                                    .toString()
+                                                    .length -
+                                                3),
+                                    fontSize: 60,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  const TextWidget2(data: 'LPA', fontSize: 20),
+                                  const SizedBox(
+                                    height: 1,
+                                  ),
+                                  TextWidget(
+                                    data: placement_responce[0]['placed_data']
+                                        [index]['company_name'],
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                  // SizedBox(height: 70,),
+                                ],
+                              ),
+                            ),
+                            const Spacer(),
+                            Padding(
+                              padding: const EdgeInsets.only(right: 15, bottom: 15),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                      padding: const EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(18),
+                                      ),
+                                      child: Center(
+                                          child: TextWidget1(
+                                        data:
+                                            '${placement_responce[0]['placed_data'][index]['role']}',
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                      )))
+                                ],
+                              ),
+                            ),
+                            // SizedBox(height: 10,)
+                          ],
+                        ),
+                      );
+                    },
+                    options: CarouselOptions(
+                      height: h * 0.32,
+                      autoPlay: false,
+                      // enableInfiniteScroll: false,
+                      initialPage: 1,
+                      // viewportFraction:0.85,
+                      enlargeCenterPage: true,
+                      autoPlayAnimationDuration: const Duration(seconds: 1),
+                      // enlargeStrategy: CenterPageEnlargeStrategy.zoom,
+                    )),
+              ],
+            ),
 
             // ListView.builder(
             // itemCount: placement_responce[0]['placed_companies'],

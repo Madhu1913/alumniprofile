@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class CompaniesTabs extends StatefulWidget {
   final String name;
   final index;
-  const CompaniesTabs({required this.index, super.key, required this.name});
+  final int? admin;
+  const CompaniesTabs({required this.index, super.key, required this.name, this.admin});
 
   @override
   State<CompaniesTabs> createState() => _CompaniesTabsState();
@@ -44,6 +45,7 @@ class _CompaniesTabsState extends State<CompaniesTabs> {
                 height: h * 0.010,
               ),
               Details(
+                admin: widget.admin,
                 index: widget.index,
               ),
             ],

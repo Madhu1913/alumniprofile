@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Current_company extends StatefulWidget {
-  const Current_company({super.key});
+  final int? admin;
+  const Current_company({super.key, this.admin});
 
   @override
   State<Current_company> createState() => _Current_companyState();
@@ -132,8 +133,8 @@ class _Current_companyState extends State<Current_company> {
                             left:
                                 BorderSide(color: Color(0xFF75C8A5), width: 2)),
                         gradient: const LinearGradient(
-                            colors: [Color(0xFF003634), Color(0xFF75C8A5)],
-                            begin: Alignment.topLeft,
+                            colors: [Color(0xFF003B37), Color(0xFF00DD7E)],
+                            begin: Alignment.topCenter,
                             end: Alignment.bottomRight)),
                     child: Center(
                       child: Padding(
@@ -187,13 +188,13 @@ class _Current_companyState extends State<Current_company> {
                   const SizedBox(
                     height: 30,
                   ),
-                  Row(
+                  widget.admin!=0 ? Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       ButtonWidget(onPressed: changeCompany, data: 'Update'),
                       ButtonWidget(onPressed: delete, data: 'Delete'),
                     ],
-                  ),
+                  ): SizedBox(),
                 ],
               )
             : IntrinsicHeight(
