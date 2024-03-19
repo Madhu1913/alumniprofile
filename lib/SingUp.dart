@@ -14,11 +14,11 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final roll = TextEditingController();
-  final key=GlobalKey<FormState>();
+  final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF062525),
+      backgroundColor: const Color(0xFF062525),
       body: Form(
         key: key,
         child: Center(
@@ -26,33 +26,35 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Padding(
-                padding: EdgeInsets.all(10.0),
-                child: TextFieldWidget(
-                  color: Color(0xFF88D59B),
+                  padding: const EdgeInsets.all(10.0),
+                  child: TextFieldWidget(
+                    color: const Color(0xFF88D59B),
+                    controller: roll,
+                    labelText: 'Roll Number',
+                    validator: (ele) {
+                      if (ele!.isEmpty) {
+                        return 'Please enter roll number';
+                      } else if (ele.length < 10) {
+                        return 'Please enter valid roll number';
+                      } else {
+                        return null;
+                      }
+                    },
+                  )),
+              ButtonWidget(
+                  onPressed: () async {
+                    if (key.currentState!.validate()) {
+                      await Working_place(roll.text.trim().toUpperCase());
+                      await Get_placement(roll.text.trim().toUpperCase());
+                    }
 
-                  controller: roll,labelText: 'Roll Number',validator: (ele){
-                  if(ele!.isEmpty){
-                    return 'Please enter roll number';
-                  }else if(ele.length<10){
-                    return 'Please enter valid roll number';
-                  }else{
-                    return null;
-                  }
-                },)
-              ),
-              ButtonWidget(onPressed: () async{
-                if(key.currentState!.validate()){
-                  await Working_place(roll.text.trim().toUpperCase());
-                  await Get_placement(roll.text.trim().toUpperCase());
-
-                }
-
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //         builder: (context) =>
-                //             MainPage(RollNumber: roll.text.trim())));
-              }, data: 'Submit')
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: (context) =>
+                    //             MainPage(RollNumber: roll.text.trim())));
+                  },
+                  data: 'Submit')
             ],
           ),
         ),

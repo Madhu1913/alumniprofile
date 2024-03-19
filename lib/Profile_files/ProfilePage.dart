@@ -7,7 +7,7 @@ import 'dart:ui' as ui;
 
 class MainPage extends StatefulWidget {
   final String? RollNumber;
-  const MainPage({super.key,  this.RollNumber});
+  const MainPage({super.key, this.RollNumber});
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -27,22 +27,21 @@ class _MainPageState extends State<MainPage> {
       child: Scaffold(
         body: Hero(
           tag: 1,
-          child: Container(
+          child: SizedBox(
             height: double.infinity,
             width: double.infinity,
             child: Stack(
               children: [
-                Container(
+                SizedBox(
                   height: h * 0.5 + 150,
                   width: w,
                   child: const Image(
-                    image: AssetImage(
-                        "assets/images/ganapathi.jpg"),
+                    image: AssetImage("assets/images/ganapathi.jpg"),
                     fit: BoxFit.cover,
                     alignment: Alignment.topCenter,
                   ),
                 ),
-                Container(
+                SizedBox(
                   height: 700,
                   child: CustomPaint(
                     size: Size(
@@ -97,11 +96,13 @@ class _MainPageState extends State<MainPage> {
                                 ),
                                 Text(
                                   name,
-                                 style: TextStyle( fontSize: 26,
-                                   fontWeight: FontWeight.bold,
-                                      color: Colors.white,
-                                      fontFamily: 'Fredoka-VariableFont_wdth,wght',
-                                 ),
+                                  style: const TextStyle(
+                                    fontSize: 26,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    fontFamily:
+                                        'Fredoka-VariableFont_wdth,wght',
+                                  ),
                                 ),
                               ],
                             ),
@@ -111,10 +112,11 @@ class _MainPageState extends State<MainPage> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                SizedBox(width: w*0.024,),
-                                 Icon(Icons.person,
-                                    size: 27,
-                                    color: Colors.white),
+                                SizedBox(
+                                  width: w * 0.024,
+                                ),
+                                const Icon(Icons.person,
+                                    size: 27, color: Colors.white),
                                 SizedBox(
                                   width: w * 0.025,
                                 ),
@@ -189,7 +191,7 @@ class _MainPageState extends State<MainPage> {
                 ),
                 //   ),
                 // ),
-      
+
                 Positioned(
                   top: h * 0.78,
                   child: Column(
@@ -201,19 +203,21 @@ class _MainPageState extends State<MainPage> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => ProfileDetails(x: 2, index: 0,)));
+                                    builder: (context) => const ProfileDetails(
+                                          x: 2,
+                                          index: 0,
+                                        )));
                           },
                           child: SizedBox(
                             height: h * 0.06,
                             width: w * 0.3,
                             child: Container(
                               decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: Color(0xFF88D59B)
-                                ),
+                                  border: Border.all(
+                                      color: const Color(0xFF88D59B)),
                                   borderRadius: BorderRadius.circular(999),
                                   color: const Color(0xFF062525)),
-                              child: Center(
+                              child: const Center(
                                   child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -222,19 +226,18 @@ class _MainPageState extends State<MainPage> {
                                     fontSize: 19,
                                     fontWeight: FontWeight.w600,
                                   ),
-                                  SizedBox(width: 4,),
+                                  SizedBox(
+                                    width: 4,
+                                  ),
                                   Padding(
-                                    padding:  EdgeInsets.only(left: 3,top: 2),
+                                    padding: EdgeInsets.only(left: 3, top: 2),
                                     child: Icon(
-      
                                       Icons.mode_edit_rounded,
                                       size: 19,
-      
                                       color: Color(0xFF88D59B),
                                     ),
                                   ),
                                   // SizedBox(width: 4,),
-      
                                 ],
                               )),
                             ),
@@ -242,14 +245,14 @@ class _MainPageState extends State<MainPage> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10,top: 5),
+                        padding: const EdgeInsets.only(left: 10, top: 5),
                         child: AnimatedGradientBorder(
                             glowSize: 2,
                             animationTime: 3,
                             borderSize: 1,
-                            gradientColors: [
-                              const Color(0xff3F6748),
-                              const Color(0xFF68E88C)
+                            gradientColors: const [
+                              Color(0xff3F6748),
+                              Color(0xFF68E88C)
                             ],
                             borderRadius: BorderRadius.circular(999),
                             child: GestureDetector(
@@ -257,7 +260,11 @@ class _MainPageState extends State<MainPage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => ProfileDetails(x: 1,index: 0,)));
+                                        builder: (context) =>
+                                            const ProfileDetails(
+                                              x: 1,
+                                              index: 0,
+                                            )));
                               },
                               child: SizedBox(
                                 height: h * 0.07,
@@ -293,14 +300,14 @@ class RPSCustomPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     // Layer 1
 
-    Paint paint_fill_0 = Paint()
+    Paint paintFill0 = Paint()
       ..style = PaintingStyle.fill
       ..strokeWidth = size.width * 0.00
       ..strokeCap = StrokeCap.butt
       ..shader = ui.Gradient.linear(
-          Offset(0, 0),
+          const Offset(0, 0),
           Offset(size.width, size.height),
-          [Color(0xFF062525), Color(0xFF062525)])
+          [const Color(0xFF062525), const Color(0xFF062525)])
       ..strokeJoin = StrokeJoin.miter;
 
     Path path_0 = Path();
@@ -345,18 +352,18 @@ class RPSCustomPainter extends CustomPainter {
     path_0.lineTo(size.width * 0.9990000, size.height);
     path_0.lineTo(size.width * 0.0025000, size.height);
 
-    canvas.drawPath(path_0, paint_fill_0);
+    canvas.drawPath(path_0, paintFill0);
 
     // Layer 1
 
-    Paint paint_stroke_0 = Paint()
+    Paint paintStroke0 = Paint()
       ..color = const Color(0xFF88D59B)
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.006
       ..strokeCap = StrokeCap.butt
       ..strokeJoin = StrokeJoin.miter;
 
-    canvas.drawPath(path_0, paint_stroke_0);
+    canvas.drawPath(path_0, paintStroke0);
   }
 
   @override
@@ -370,11 +377,11 @@ class RPSCustomPainter1 extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     // Layer 1
 
-    Paint paint_fill_0 = Paint()
+    Paint paintFill0 = Paint()
       ..shader = ui.Gradient.linear(
-          Offset(0, 0),
+          const Offset(0, 0),
           Offset(size.width, size.height),
-          [Color(0xFF062525), Color(0xFF062525)])
+          [const Color(0xFF062525), const Color(0xFF062525)])
       ..style = PaintingStyle.fill
       ..strokeWidth = size.width * 0.00
       ..strokeCap = StrokeCap.butt
@@ -386,21 +393,21 @@ class RPSCustomPainter1 extends CustomPainter {
     path_0.lineTo(size.width * 1.0105250, size.height * 0.9987500);
     path_0.lineTo(size.width * -0.0001750, size.height * 0.9988375);
 
-    canvas.drawPath(path_0, paint_fill_0);
+    canvas.drawPath(path_0, paintFill0);
 
     // Layer 1
 
-    Paint paint_stroke_0 = Paint()
+    Paint paintStroke0 = Paint()
       ..shader = ui.Gradient.linear(
-          Offset(0, 0),
+          const Offset(0, 0),
           Offset(size.width, size.height),
-          [Color(0xFF062525), Color(0xFF062525)])
+          [const Color(0xFF062525), const Color(0xFF062525)])
       ..style = PaintingStyle.stroke
       ..strokeWidth = size.width * 0.00
       ..strokeCap = StrokeCap.butt
       ..strokeJoin = StrokeJoin.miter;
 
-    canvas.drawPath(path_0, paint_stroke_0);
+    canvas.drawPath(path_0, paintStroke0);
   }
 
   @override

@@ -19,6 +19,7 @@ class TextWidget extends StatelessWidget {
     );
   }
 }
+
 class TextWidget2 extends StatelessWidget {
   final String data;
   final double fontSize;
@@ -71,7 +72,8 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(backgroundColor: Color(0xFF88D59B)),
+        style:
+            ElevatedButton.styleFrom(backgroundColor: const Color(0xFF88D59B)),
         onPressed: onPressed,
         child: TextWidget1(
           data: data,

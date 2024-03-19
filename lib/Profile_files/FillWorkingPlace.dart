@@ -3,6 +3,7 @@ import 'package:alumniprofile/Profile_files/Current_working.dart';
 import 'package:alumniprofile/Profile_files/Profiles_Details.dart';
 import 'package:alumniprofile/Profile_files/Widgets.dart';
 import 'package:flutter/material.dart';
+
 class FillWorkingPlace extends StatefulWidget {
   const FillWorkingPlace({super.key});
 
@@ -11,37 +12,39 @@ class FillWorkingPlace extends StatefulWidget {
 }
 
 class _FillWorkingPlaceState extends State<FillWorkingPlace> {
-
   bool check = false;
 
-  final companyName=TextEditingController();
-  final location=TextEditingController();
+  final companyName = TextEditingController();
+  final location = TextEditingController();
 
-  void saveDetails() async{
+  void saveDetails() async {
     // update the API with workPlace details
 
-
-    if(key.currentState!.validate()){
+    if (key.currentState!.validate()) {
       check = true;
-      setState(() {
-
-      });
-      await UpdateCompany(Student_id!,companyName.text.trim(),location.text.trim());
+      setState(() {});
+      await UpdateCompany(
+          Student_id!, companyName.text.trim(), location.text.trim());
       // await Working_place(Student_id!).then( setState(() {
       //   check = false;
       // }));
       setState(() {
         check = false;
       });
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProfileDetails(x: 1 , index: 1,)));
-
-
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+              builder: (context) => const ProfileDetails(
+                    x: 1,
+                    index: 1,
+                  )));
     }
   }
-  final key=GlobalKey<FormState>();
+
+  final key = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    double h=MediaQuery.of(context).size.height;
+    double h = MediaQuery.of(context).size.height;
     return IntrinsicHeight(
       child: Container(
         // height: h*0.31,
@@ -51,23 +54,27 @@ class _FillWorkingPlaceState extends State<FillWorkingPlace> {
             children: [
               TextFieldWidget(
                 controller: companyName,
-                color: Color(0xFF88D59B),
+                color: const Color(0xFF88D59B),
                 validator: (ele) {
-                  if(ele!.isEmpty){
+                  if (ele!.isEmpty) {
                     return 'Please enter the Company Name';
-                  }else{
+                  } else {
                     return null;
                   }
                 },
                 labelText: 'Company Name',
               ),
-              TextFieldWidget(controller: location, labelText: 'Location', validator: (ele){
-                if(ele!.isEmpty){
-                  return 'Please enter the location';
-                }else{
-                  return null;
-                }
-              }, color: Color(0xFF88D59B)),
+              TextFieldWidget(
+                  controller: location,
+                  labelText: 'Location',
+                  validator: (ele) {
+                    if (ele!.isEmpty) {
+                      return 'Please enter the location';
+                    } else {
+                      return null;
+                    }
+                  },
+                  color: const Color(0xFF88D59B)),
               // SizedBox(height: 10,),
               // Row(
               //   children: [
@@ -93,8 +100,12 @@ class _FillWorkingPlaceState extends State<FillWorkingPlace> {
               //     ),
               //   ],
               // ),
-              SizedBox(height: 3,),
-              (check) ? CircularProgressIndicator() : ButtonWidget(onPressed: saveDetails, data: 'Save')
+              const SizedBox(
+                height: 3,
+              ),
+              (check)
+                  ? const CircularProgressIndicator()
+                  : ButtonWidget(onPressed: saveDetails, data: 'Save')
             ],
           ),
         ),
