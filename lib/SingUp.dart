@@ -18,6 +18,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF062525),
       body: Form(
         key: key,
         child: Center(
@@ -27,7 +28,7 @@ class _LoginState extends State<Login> {
               Padding(
                 padding: EdgeInsets.all(10.0),
                 child: TextFieldWidget(
-                  color: Color(0xFF062525),
+                  color: Color(0xFF88D59B),
 
                   controller: roll,labelText: 'Roll Number',validator: (ele){
                   if(ele!.isEmpty){
@@ -40,9 +41,10 @@ class _LoginState extends State<Login> {
                 },)
               ),
               ButtonWidget(onPressed: () async{
-
                 if(key.currentState!.validate()){
+                  await Working_place(roll.text.trim().toUpperCase());
                   await Get_placement(roll.text.trim().toUpperCase());
+
                 }
 
                 // Navigator.push(

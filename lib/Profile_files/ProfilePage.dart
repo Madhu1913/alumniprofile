@@ -1,4 +1,3 @@
-import 'package:alumniprofile/Profile_files/ApiCalls.dart';
 import 'package:alumniprofile/Profile_files/Profiles_Details.dart';
 import 'package:alumniprofile/Profile_files/Widgets.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +14,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  String name = 'Sobha Rani Nethala';
+  String name = ' S V V D Ganapathi';
   String number = '987654321';
   String email = 'Dummy@gmail.com';
   String linkedin = 'Dummy@gmail.com';
@@ -24,259 +23,264 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
-    return Scaffold(
-      body: Hero(
-        tag: 1,
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          child: Stack(
-            children: [
-              Container(
-                height: h * 0.5 + 150,
-                width: w,
-                child: const Image(
-                  image: NetworkImage(
-                      'https://cdn.pixabay.com/photo/2024/01/15/04/30/woman-8509281_960_720.jpg'),
-                  fit: BoxFit.fill,
-                  alignment: Alignment.topCenter,
-                ),
-              ),
-              Container(
-                height: 700,
-                child: CustomPaint(
-                  size: Size(
-                      w,
-                      (w * 2.3333333333333335)
-                          .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: RPSCustomPainter(),
-                ),
-              ),
-              Container(
-                child: CustomPaint(
-                  size: Size(
-                      w,
-                      (w * 2.3333333333333335)
-                          .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
-                  painter: RPSCustomPainter1(),
-                ),
-              ),
-              // Positioned(
-              //   bottom: 0,
-              //   child: Container(
-              //     // color: Colors.blue,
-              //     height: h * 0.5 + 100,
-              //     width: w,
-              //     decoration: BoxDecoration(
-              //         gradient: LinearGradient(
-              //             colors: [Color(0xFF0B4849), Color(0xFF062525)],
-              //             begin: Alignment.topLeft,
-              //             end: Alignment.bottomRight),
-              //         borderRadius: BorderRadius.only(
-              //             topLeft: Radius.circular(28),
-              //             topRight: Radius.circular(28))),
-              //     child:
-              Positioned(
-                top: h * 0.47,
-                child: Container(
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: w * 0.025,
-                      ),
-                      Column(
-                        // mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: h * 0.10,
-                          ),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: w * 0.055,
-                              ),
-                              TextWidget(
-                                data: name,
-                                fontSize: 26,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: h * 0.010,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              SizedBox(width: w*0.024,),
-                               Icon(Icons.person,
-                                  size: 27,
-                                  color: Color(0xFF88D59B)),
-                              SizedBox(
-                                width: w * 0.025,
-                              ),
-                              TextWidget(
-                                data: widget.RollNumber!,
-                                fontSize: 18,
-                              ),
-                              SizedBox(
-                                width: w * 0.18,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: h * 0.010,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              const Icon(Icons.phone_in_talk_rounded,
-                                  color: Color(0xFF88D59B)),
-                              SizedBox(
-                                width: w * 0.04,
-                              ),
-                              TextWidget(
-                                data: number,
-                                fontSize: 18,
-                              ),
-                              SizedBox(
-                                width: w * 0.18,
-                              )
-                            ],
-                          ),
-                          SizedBox(
-                            height: h * 0.010,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              const Icon(Icons.mail_outline_rounded,
-                                  color: Color(0xFF88D59B)),
-                              SizedBox(
-                                width: w * 0.04,
-                              ),
-                              TextWidget(
-                                data: email,
-                                fontSize: 18,
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: h * 0.010,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              const Icon(Icons.mail_outline_rounded,
-                                  color: Color(0xFF88D59B)),
-                              SizedBox(
-                                width: w * 0.04,
-                              ),
-                              TextWidget(
-                                data: linkedin,
-                                fontSize: 18,
-                              )
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
+    return SafeArea(
+      child: Scaffold(
+        body: Hero(
+          tag: 1,
+          child: Container(
+            height: double.infinity,
+            width: double.infinity,
+            child: Stack(
+              children: [
+                Container(
+                  height: h * 0.5 + 150,
+                  width: w,
+                  child: const Image(
+                    image: AssetImage(
+                        "assets/images/ganapathi.jpg"),
+                    fit: BoxFit.cover,
+                    alignment: Alignment.topCenter,
                   ),
                 ),
-              ),
-              //   ),
-              // ),
-
-              Positioned(
-                top: h * 0.8,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10),
-                      child: GestureDetector(
-                        onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProfileDetails(x: 2,)));
-                        },
-                        child: SizedBox(
-                          height: h * 0.06,
-                          width: w * 0.3,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Color(0xFF88D59B)
-                              ),
-                                borderRadius: BorderRadius.circular(999),
-                                color: const Color(0xFF062525)),
-                            child: Center(
-                                child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                Container(
+                  height: 700,
+                  child: CustomPaint(
+                    size: Size(
+                        w,
+                        (w * 2.3333333333333335)
+                            .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                    painter: RPSCustomPainter(),
+                  ),
+                ),
+                Container(
+                  child: CustomPaint(
+                    size: Size(
+                        w,
+                        (w * 2.3333333333333335)
+                            .toDouble()), //You can Replace [WIDTH] with your desired width for Custom Paint and height will be calculated automatically
+                    painter: RPSCustomPainter1(),
+                  ),
+                ),
+                // Positioned(
+                //   bottom: 0,
+                //   child: Container(
+                //     // color: Colors.blue,
+                //     height: h * 0.5 + 100,
+                //     width: w,
+                //     decoration: BoxDecoration(
+                //         gradient: LinearGradient(
+                //             colors: [Color(0xFF0B4849), Color(0xFF062525)],
+                //             begin: Alignment.topLeft,
+                //             end: Alignment.bottomRight),
+                //         borderRadius: BorderRadius.only(
+                //             topLeft: Radius.circular(28),
+                //             topRight: Radius.circular(28))),
+                //     child:
+                Positioned(
+                  top: h * 0.47,
+                  child: Container(
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          width: w * 0.025,
+                        ),
+                        Column(
+                          // mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: h * 0.10,
+                            ),
+                            Row(
                               children: [
-                                TextWidget(
-                                  data: 'Edit',
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w600,
+                                SizedBox(
+                                  width: w * 0.055,
                                 ),
-                                SizedBox(width: 4,),
-                                Padding(
-                                  padding:  EdgeInsets.only(left: 3,top: 2),
-                                  child: Icon(
-
-                                    Icons.mode_edit_rounded,
-                                    size: 19,
-
-                                    color: Color(0xFF88D59B),
-                                  ),
+                                Text(
+                                  name,
+                                 style: TextStyle( fontSize: 26,
+                                   fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                      fontFamily: 'Fredoka-VariableFont_wdth,wght',
+                                 ),
                                 ),
-                                // SizedBox(width: 4,),
-
                               ],
-                            )),
+                            ),
+                            SizedBox(
+                              height: h * 0.010,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                SizedBox(width: w*0.024,),
+                                 Icon(Icons.person,
+                                    size: 27,
+                                    color: Colors.white),
+                                SizedBox(
+                                  width: w * 0.025,
+                                ),
+                                TextWidget(
+                                  data: widget.RollNumber!,
+                                  fontSize: 18,
+                                ),
+                                SizedBox(
+                                  width: w * 0.18,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: h * 0.010,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                const Icon(Icons.phone_in_talk_rounded,
+                                    color: Colors.white),
+                                SizedBox(
+                                  width: w * 0.04,
+                                ),
+                                TextWidget(
+                                  data: number,
+                                  fontSize: 18,
+                                ),
+                                SizedBox(
+                                  width: w * 0.18,
+                                )
+                              ],
+                            ),
+                            SizedBox(
+                              height: h * 0.010,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                const Icon(Icons.mail_outline_rounded,
+                                    color: Colors.white),
+                                SizedBox(
+                                  width: w * 0.04,
+                                ),
+                                TextWidget(
+                                  data: email,
+                                  fontSize: 18,
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: h * 0.010,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                const Icon(Icons.mail_outline_rounded,
+                                    color: Colors.white),
+                                SizedBox(
+                                  width: w * 0.04,
+                                ),
+                                TextWidget(
+                                  data: linkedin,
+                                  fontSize: 18,
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                //   ),
+                // ),
+      
+                Positioned(
+                  top: h * 0.78,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ProfileDetails(x: 2, index: 0,)));
+                          },
+                          child: SizedBox(
+                            height: h * 0.06,
+                            width: w * 0.3,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                border: Border.all(
+                                  color: Color(0xFF88D59B)
+                                ),
+                                  borderRadius: BorderRadius.circular(999),
+                                  color: const Color(0xFF062525)),
+                              child: Center(
+                                  child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  TextWidget(
+                                    data: 'Edit',
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  SizedBox(width: 4,),
+                                  Padding(
+                                    padding:  EdgeInsets.only(left: 3,top: 2),
+                                    child: Icon(
+      
+                                      Icons.mode_edit_rounded,
+                                      size: 19,
+      
+                                      color: Color(0xFF88D59B),
+                                    ),
+                                  ),
+                                  // SizedBox(width: 4,),
+      
+                                ],
+                              )),
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10,top: 5),
-                      child: AnimatedGradientBorder(
-                          glowSize: 2,
-                          animationTime: 3,
-                          borderSize: 1,
-                          gradientColors: [
-                            const Color(0xff3F6748),
-                            const Color(0xFF68E88C)
-                          ],
-                          borderRadius: BorderRadius.circular(999),
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProfileDetails(x: 1,)));
-                            },
-                            child: SizedBox(
-                              height: h * 0.07,
-                              width: w * 0.91,
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(999),
-                                    color: const Color(0xFF062525)),
-                                child: const Center(
-                                    child: TextWidget(
-                                  data: 'Placed Companies/Work Place',
-                                  fontSize: 19,
-                                  fontWeight: FontWeight.w600,
-                                )),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10,top: 5),
+                        child: AnimatedGradientBorder(
+                            glowSize: 2,
+                            animationTime: 3,
+                            borderSize: 1,
+                            gradientColors: [
+                              const Color(0xff3F6748),
+                              const Color(0xFF68E88C)
+                            ],
+                            borderRadius: BorderRadius.circular(999),
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ProfileDetails(x: 1,index: 0,)));
+                              },
+                              child: SizedBox(
+                                height: h * 0.07,
+                                width: w * 0.91,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(999),
+                                      color: const Color(0xFF062525)),
+                                  child: const Center(
+                                      child: TextWidget(
+                                    data: 'Placed Companies/Work Place',
+                                    fontSize: 19,
+                                    fontWeight: FontWeight.w600,
+                                  )),
+                                ),
                               ),
-                            ),
-                          )),
-                    ),
-                  ],
-                ),
-              )
-            ],
+                            )),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

@@ -7,16 +7,18 @@ import 'EditPage.dart';
 import 'Widgets.dart';
 
 class ProfileDetails extends StatefulWidget {
+
+  final index;
   final int x;
 
-  const ProfileDetails({super.key, required this.x});
+  const ProfileDetails({super.key, required this.x,required this.index});
 
   @override
   State<ProfileDetails> createState() => _ProfileDetailsState();
 }
 
 class _ProfileDetailsState extends State<ProfileDetails> {
-  String name = 'Sobha Rani Nethala';
+  String name = 'S V V D Ganapathi';
   String number = '987654321';
   String email = 'Dummy@gmail.com';
   String linkedin = 'Dummy@gmail.com';
@@ -69,16 +71,16 @@ class _ProfileDetailsState extends State<ProfileDetails> {
                       tag: 1,
                       child: CircleAvatar(
                         radius: w/4.5,
-                        backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2024/01/15/04/30/woman-8509281_960_720.jpg'),
+                        backgroundImage: AssetImage('assets/images/ganapathi.jpg'),
                       ),
                     ),
                   ],
                 ),
                 widget.x==1? Positioned(
                   top: h*0.115,
-                  child: CompaniesTabs(name: name,)
+                  child: CompaniesTabs(name: name, index: widget.index,)
                 ):Positioned(
-                    top: h*0.225,
+                    top: h*0.285,
                     left: w*0.109,
                     child: EditPage())
               ],
