@@ -59,6 +59,7 @@ class TextWidget1 extends StatelessWidget {
           fontSize: fontSize,
           color: const Color(0xFF062525),
           fontFamily: 'Fredoka-VariableFont_wdth,wght',
+          overflow: TextOverflow.visible,
           fontWeight: fontWeight),
     );
   }

@@ -78,15 +78,8 @@ class _SelectedCompaniesState extends State<SelectedCompanies> {
                                   // SizedBox(height: 10,),
                                   TextWidget2(
                                     data: placement_responce[0]['placed_data']
-                                            [index]['package']
-                                        .toString()
-                                        .substring(
-                                            0,
-                                            placement_responce[0]['placed_data']
-                                                        [index]['package']
-                                                    .toString()
-                                                    .length -
-                                                3),
+                              [index]['package'].length==0 ?  "31.31":  placement_responce[0]['placed_data']
+                                            [index]['package'].toString().split(" ")[0] ,
                                     fontSize: 60,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -96,7 +89,7 @@ class _SelectedCompaniesState extends State<SelectedCompanies> {
                                   ),
                                   TextWidget(
                                     data: placement_responce[0]['placed_data']
-                                        [index]['company_name'],
+                                        [index]['company_name'] ??"",
                                     fontSize: 22,
                                     fontWeight: FontWeight.w700,
                                   ),
@@ -118,11 +111,11 @@ class _SelectedCompaniesState extends State<SelectedCompanies> {
                                       ),
                                       child: Center(
                                           child: TextWidget1(
-                                        data:
-                                            '${placement_responce[0]['placed_data'][index]['role']}',
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.w700,
-                                      )))
+                                                                                  data:
+                                            placement_responce[0]['placed_data'][index]['role'].length ==0 ? "Developer" :placement_responce[0]['placed_data'][index]['role'].toString().split("&")[0],
+                                                                                  fontSize: 14,
+                                                                                  fontWeight: FontWeight.w700,
+                                                                                )))
                                 ],
                               ),
                             ),

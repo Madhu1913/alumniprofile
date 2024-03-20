@@ -26,7 +26,8 @@ Get_placement(String UID) async {
       .then((res) {
     if (res.statusCode == 200) {
       placement_responce = jsonDecode(res.body);
-      //print(placement_responce);
+      print(placement_responce);
+      print(placement_responce.length);
 
       // Get.to(() => MainPage(RollNumber: UID));
     } else if (res.statusCode >= 400) {
