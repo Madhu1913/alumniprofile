@@ -26,6 +26,7 @@ class _MainPageState extends State<MainPage> {
     double w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Color(0xFF062525),
         body: Hero(
           tag: 1,
           child: SizedBox(
@@ -313,7 +314,7 @@ class RPSCustomPainter extends CustomPainter {
       ..strokeJoin = StrokeJoin.miter;
 
     Path path_0 = Path();
-    path_0.moveTo(size.width * 0.0050000, size.height * 0.4800000);
+    path_0.moveTo(size.width * 0.0000000, size.height * 0.4800000);
     path_0.quadraticBezierTo(size.width * 0.0326500, size.height * 0.4574875,
         size.width * 0.0704000, size.height * 0.4652500);
     path_0.cubicTo(
@@ -350,9 +351,9 @@ class RPSCustomPainter extends CustomPainter {
         size.width * 0.9510500,
         size.height * 0.6542750);
     path_0.quadraticBezierTo(size.width * 0.9722500, size.height * 0.6623125,
-        size.width * 1.0025000, size.height * 0.6812500);
-    path_0.lineTo(size.width * 0.9990000, size.height);
-    path_0.lineTo(size.width * 0.0025000, size.height);
+        size.width * 1.0095000, size.height * 0.6812500);
+    path_0.lineTo(size.width * 0.9999900, size.height);
+    path_0.lineTo(size.width * 0.0000000, size.height);
 
     canvas.drawPath(path_0, paintFill0);
 

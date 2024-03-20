@@ -112,7 +112,7 @@ class _SelectedCompaniesState extends State<SelectedCompanies> {
                                       child: Center(
                                           child: TextWidget1(
                                                                                   data:
-                                            placement_responce[0]['placed_data'][index]['role'].length ==0 ? "Developer" :placement_responce[0]['placed_data'][index]['role'].toString().split("&")[0],
+                                            placement_responce[0]['placed_data'][index]['role'].length ==0 ? "Software Developer" :placement_responce[0]['placed_data'][index]['role'].toString().split("&")[0],
                                                                                   fontSize: 14,
                                                                                   fontWeight: FontWeight.w700,
                                                                                 )))

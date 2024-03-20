@@ -86,10 +86,11 @@ class _EditPageState extends State<EditPage> {
                     data: 'Submit',
                     onPressed: () {
                       if (key.currentState!.validate()) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const MainPage()));
+                        Navigator.pop(context);
+                        // Navigator.push(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => const MainPage()));
                       }
                     },
                   ),
